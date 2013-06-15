@@ -25,8 +25,18 @@ fs.readdirSync(__dirname + '/../templates/pages').forEach(function (name) {
 	var context ={};
 	var pagename=name.replace(/\.mustache$/, '');
 
-	context["script"] =	pagename;
-	context["homeflag"] =  (pagename==="index")  ? "homebody" : "pagebody";
+	if(pagename==='index'){
+		context={
+			script: "Home"
+			, homeflag: "homebody"
+		}
+	}
+	else{
+		context={
+			script: pagename
+			, homeflag: "pagebody"
+		}
+	}
 
 	page = hogan.compile(page)
 	page = layout.render(context, {

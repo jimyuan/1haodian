@@ -169,3 +169,117 @@
 	left:50%;
 	margin-left: -500px;
 }
+
+/*gallery style begin*/
+.dg-container{
+	.size(990px, 1080px);
+	overflow: hidden;
+	padding-top: 257px;
+	position: relative;
+	background: url(../img/console-back.png) no-repeat center 100%;
+}
+.dg-cell(){
+	.size(550px,628px);
+}
+.dg-wrapper{
+	.dg-cell;
+	margin: 0 auto;
+	position: relative;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	-o-perspective: 1000px;
+	-ms-perspective: 1000px;
+	perspective: 1000px;
+}
+.dg-wrapper a{
+	.dg-cell;
+	display: block;
+	position: absolute;
+	.border-radius(20px);
+	left: 0; top: 0;
+
+	background: url(../img/browser.png) no-repeat center center;
+	&:not(.dg-center){
+		-webkit-filter: blur(3px);
+		-moz-filter: blur(3px);
+		-o-filter: blur(3px);
+		-ms-filter: blur(3px);
+		filter: blur(3px);
+		img{
+			.opacity(70);
+		}
+	}
+	video{
+		.opacity(0);
+		cursor: default;
+	}
+}
+.dg-wrapper a.dg-transition{
+	.transition(all 0.5s ease-in-out);
+}
+.dg-wrapper a img{
+	display: block;
+	border-bottom:1px solid #797265;
+	.border-top-left-radius(20px);
+	.border-top-right-radius(20px);
+}
+/*.dg-wrapper a div{
+	font-style: italic;
+	text-align: center;
+	line-height: 50px;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+	color: #333;
+	font-size: 16px;
+	width: 100%;
+	bottom: -55px;
+	display: none;
+	position: absolute;
+}*/
+.dg-wrapper a.dg-center video{
+	.size(503px, 628px);
+	background: black;
+	.border-top-left-radius(20px);
+	.border-top-right-radius(20px);
+	source{
+		.size(503px, 628px);	
+	}
+}
+.dg-container nav{
+	width: 430px;
+	position: absolute;
+	z-index: 1000;
+	top:755px;
+	left: 50%;
+	margin-left: -430px/2;
+	background: url(../img/vc-bg-2.png) no-repeat center bottom;
+}
+.dg-container nav i{
+	float: left;
+	font-size: 40px;
+	text-align: center;
+	line-height: 84px;
+	cursor:pointer;
+	color:#62a0c9;
+	.square(84px);
+	.opacity(80);
+	background: transparent url(../img/vc-back-1.png) no-repeat;
+	&:hover{
+		.opacity(100);
+	}
+	&.dg-play{
+		.square(106px);
+		font-size:68px;
+		line-height: 106px;
+		background: url(../img/vc-back-play.png) no-repeat;
+		margin:-(106px-84)/2 (430px-84*2-106)/2 0;
+	}
+}
+.dg-container nav i:hover{
+	// opacity: 1;
+}
+/*gallery style end*/
