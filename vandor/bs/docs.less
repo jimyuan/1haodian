@@ -139,7 +139,7 @@
 	}
 }
 
-#proModal{
+#myModal{
 	@m-width:770px;
 	@m-height:580px;
 	.size(@m-height, @m-width);
@@ -155,7 +155,7 @@
 		img{
 			.center-block;
 			margin-top: 60px;
-			.size(472px,711px);
+			// .size(472px,711px);
 		}
 	}
 }
@@ -279,7 +279,77 @@
 		margin:-(106px-84)/2 (430px-84*2-106)/2 0;
 	}
 }
-.dg-container nav i:hover{
-	// opacity: 1;
-}
 /*gallery style end*/
+
+#Download-wrap{
+	.size(1566px,1080px);
+	background: url(../img/download-back.png) no-repeat;
+	.coupon-list{
+		@c-h:1248px;
+		.size(@c-h,859px);
+		.center-block;
+		padding-top: 146px;
+
+		.item{
+			height:@c-h;
+			a{
+				display: block;
+				height:@c-h/6;
+				p{
+					@ph:43px;
+					background: black;
+					line-height: @ph;
+					height:@ph;	
+					margin:-@ph 0 0;
+					.opacity(80);
+					font-size:17px;
+					color:white;
+					.event-name{
+						.pull-left;
+						margin-left: 30px;
+					}
+					.event-date{
+						.pull-right;
+						margin-right: 30px;
+					}
+				}
+			}
+		}
+	}
+	nav{
+		position: absolute;
+		top:290px;
+		left: 50%;
+		margin-left: 260px;
+		i{
+			display: inline-block;
+			.square(90px);
+			.border-radius(45px);
+			.opacity(80);
+			color:#cec8c1;
+			cursor: pointer;
+			text-align: center;
+			font-size:50px;
+			line-height: 90px;
+			background: #9d958d;
+			&:last-child{
+				margin-left:38px;
+			}
+			&:hover{
+				.opacity(100);
+			}
+		}
+	}
+}
+
+#myModal-2{
+	#myModal;
+	height: 800px;
+	.modal-body>p{
+		font-size:32px;
+		line-height: 160px;
+		font-weight: bold;
+		color:#6496bd;
+		text-align: center;
+	}
+}
