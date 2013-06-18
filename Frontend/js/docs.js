@@ -64,7 +64,7 @@
 		}
 	};
 
-	goHome();
+	// goHome();
 }(jQuery))
 
 
