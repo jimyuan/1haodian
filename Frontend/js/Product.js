@@ -4,22 +4,25 @@
 	});
 
 	$("#Sort-guide").on("click","i",function(){
-		var d=180/5;
+		var d=360/10;
 		var r=($(this).attr("data")==="next") ? -1 : 1;
 
 		//rotate 对象
 		var $ro=$(this).parent().prev();
 		var deg=parseInt($ro.attr("deg"), 10);//当前角度值
 		var deg2=deg+d*r;//需达到的角度
-		// if(deg2>180) deg2=deg2-180;
 
 		$ro.attr("deg",deg2);
-		console.log($ro.attr("deg"))
-		var cosVal = Math.cos(deg2 * Math.PI / 180), sinVal = Math.sin(deg2 * Math.PI / 180);
-		var valTransform = 'matrix('+ cosVal.toFixed(6) +','+ sinVal.toFixed(6) +','+ (-1 * sinVal).toFixed(6) +','+ cosVal.toFixed(6) +',0,0)';
+		$ro.css("-webkitTransform", "rotate("+deg2+"deg)")
 
-		$ro[0].style["-webkitTransform"] = valTransform;
+		//get sort name
+		var sn=$("#Sort-name").html().split(",");
+		var i=0;
+		if(deg2>0) i=360-deg2%360;
+		if(deg2<0) i=deg2%360*-1;
+		console.log(sn[i/36]);
 	});
+
 	$("#Sort-pie").hover(function(){
 		$("#Sort-guide").fadeIn()
 	}, function(){
@@ -28,11 +31,10 @@
 
 	$(".pro-desc").click(function(e){
 		e.stopPropagation();
-		$("#Prodesc").fadeIn();
+		// $("#Prodesc").fadeIn();
+		$('#descModal').modal().find(".modal-header h3").html($(this).next().children("h3").html())
+		.end().find(".modal-body p").html($(this).next().children("p").html());
 		return false;
 	});
 
-	$("i.dg-prev, i.dg-next").mousedown(function(){
-		$("#Prodesc").fadeOut();
-	});
 }(jQuery))

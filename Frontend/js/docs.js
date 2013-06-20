@@ -45,6 +45,30 @@
 		});
 	};
 
+	$.succ=function(t){
+		if($.isNumeric(t)) {return t-0+1;}
+		else{
+			t=t+"";
+			return  t.slice(0, t.length - 1) + 
+					String.fromCharCode(t.charCodeAt(t.length - 1) + 1);
+		}
+	};
+	
+	$.R=function(start, end){
+		var edge=arguments[2] || false;
+		var v=start;
+		var a=[];
+		var flag=function(value){
+			if (value<start) {return false;}
+			if (edge) {return value<end;}
+			return value<=end;
+		};
+		while(flag(v)){
+			a.push(v); v=this.succ(v);
+		}
+		return a;
+	};
+
 	var goHome=function(){
 		var loadtime=null, waittime=null;
 		var s=20;//waiting seconds
