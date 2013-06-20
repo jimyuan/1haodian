@@ -31,7 +31,7 @@
 
 	$(".pro-desc").click(function(e){
 		e.stopPropagation();
-		// $("#Prodesc").fadeIn();
+
 		$('#descModal').modal().find(".modal-header h3").html($(this).next().children("h3").html())
 		.end().find(".modal-body p").html($(this).next().children("p").html());
 		return false;
