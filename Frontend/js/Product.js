@@ -3,6 +3,24 @@
 		$('#Pro-container').gallery();
 	});
 
+	var getProName=function(){
+		//get sort name
+		var sn=$("#Sort-name").html().split(",");
+		sn.pop();
+		sn=$.ext(sn, 10);
+
+		var deg= $("#Sort-pie > img").attr("deg");
+		var i=0;
+		if(deg>0) i=360-deg%360;
+		if(deg<0) i=deg%360*-1;
+		return sn[i/36];
+	}
+
+	var getPro=function(){
+		var proid=getProName()
+		$("#Pro-container > .dg-wrapper").html($("#sortwrapper a."+proid).clone())
+	}
+
 	$("#Sort-guide").on("click","i",function(){
 		var d=360/10;
 		var r=($(this).attr("data")==="next") ? -1 : 1;
@@ -13,14 +31,9 @@
 		var deg2=deg+d*r;//需达到的角度
 
 		$ro.attr("deg",deg2);
-		$ro.css("-webkitTransform", "rotate("+deg2+"deg)")
+		$ro.css("-webkitTransform", "rotate("+deg2+"deg)");
 
-		//get sort name
-		var sn=$("#Sort-name").html().split(",");
-		var i=0;
-		if(deg2>0) i=360-deg2%360;
-		if(deg2<0) i=deg2%360*-1;
-		console.log(sn[i/36]);
+		console.log(getProName());
 	});
 
 	$("#Sort-pie").hover(function(){
@@ -36,5 +49,8 @@
 		.end().find(".modal-body p").html($(this).next().children("p").html());
 		return false;
 	});
+
+	// console.log(getProName())
+	getPro();
 
 }(jQuery))

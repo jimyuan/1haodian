@@ -69,6 +69,18 @@
 		return a;
 	};
 
+	$.ext=function(arr, n){
+		var l=arr.length;
+		if(!$.isArray(arr)) return [];
+		var arr2=arr;
+		// if (l>=n) return arr;
+		for(var i=0; i<Math.floor(n/l); i++){
+			arr2=$.merge(arr2,arr);
+		}
+		arr2.length=n;
+		return arr2;
+	};
+
 	var goHome=function(){
 		var loadtime=null, waittime=null;
 		var s=20;//waiting seconds
