@@ -49,31 +49,6 @@
 		a{
 			display: block;
 			margin-bottom: 15px;
-			text-indent: -10000px;
-
-			&:first-child{
-				display: none;
-			}
-			&:nth-child(2){
-				height: 353px;
-				background: url(../img/nav-picture.png);
-			} 
-			&:nth-child(3){
-				height: 353px;
-				background: url(../img/nav-video.png);
-			} 
-			&:nth-child(4){
-				height: 195px;
-				background: url(../img/nav-download.png);
-			}
-			&:nth-child(5){
-				height: 256px;
-				background: url(../img/nav-product.png);
-			}
-			&:nth-child(6){
-				height: 302px;
-				background: url(../img/nav-product-manuals.png)
-			}
 		}
 	}
 }
@@ -85,10 +60,12 @@
 		text-indent: -10000px;
 		background: url(../img/backhome.png) no-repeat;
 	}
-	nav{
+}
+
+nav#Sort-wrap{
 		.size(120px, 670px);
 		.pull-right;
-		margin:0 42px;
+		margin:-110px 42px 0;
 
 		.left-path, .right-path{
 			width:20px;
@@ -109,18 +86,29 @@
 
 			ul{
 				margin:0;
+				height:120px;
 				li{
 					.pull-left;
 					margin:0 11px;
 					list-style-position: inside;
 					line-height: 110px;
-					font-size:30px;
 					color:@tc;
+					font-size:30px;
+					a{
+						font-size:30px;
+						color:@tc;
+						&:hover{
+							text-decoration:none;
+						}
+					}
+					&.active a{
+						color:darken(@tc, 20%);
+						text-decoration:underline;
+					}
 				}	
 			}
 		}
 	}
-}
 
 #proCarousel{
 	padding-top:48px;
@@ -156,6 +144,11 @@
 			}
 		}
 	}
+	a.carousel-control{
+		font-size:20px;
+		line-height:40px;
+		text-align:center;
+	}
 }
 
 #myModal{
@@ -174,7 +167,7 @@
 		img{
 			.center-block;
 			margin-top: 60px;
-			// .size(472px,711px);
+			.size(472px,711px);
 		}
 	}
 }
@@ -242,6 +235,7 @@
 	border-bottom:1px solid #797265;
 	.border-top-left-radius(20px);
 	.border-top-right-radius(20px);
+	.size(503px, 628px);
 }
 /*.dg-wrapper a div{
 	font-style: italic;
@@ -310,6 +304,9 @@
 			a{
 				display: block;
 				height:@c-h/6;
+				img{
+					height:@c-h/6;
+				}
 				p{
 					@ph:43px;
 					background: black;
@@ -373,7 +370,7 @@
 	@w:1080px;
 	.size(540px,@w);
 	position: absolute;
-	top:1920px-542;
+	top:1920px-540;
 	left:50%;
 	margin-left: -@w/2;
 	overflow: hidden;
@@ -423,7 +420,7 @@
 
 #Pro-container{
 	width: 1080px;
-	overflow: hidden;
+	//overflow: hidden;
 	position: relative;
 	.dg-wrapper{
 		.size(617px, 1080px);
@@ -439,6 +436,7 @@
 		img{
 			border-width:0;
 			.border-radius(0);
+			.square(617px);
 			.center-block;
 			.transition(all 0.5s ease-in-out);
 		}
@@ -461,7 +459,7 @@
 	}
 	nav{
 		position: absolute;
-		top:0;
+		top:-80px;
 		background: none;
 		left: 50%;
 		margin-left: 260px;

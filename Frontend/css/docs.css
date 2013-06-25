@@ -6108,30 +6108,6 @@ a.badge:focus {
 #Menu p.Menu a {
   display: block;
   margin-bottom: 15px;
-  text-indent: -10000px;
-}
-#Menu p.Menu a:first-child {
-  display: none;
-}
-#Menu p.Menu a:nth-child(2) {
-  height: 353px;
-  background: url(../img/nav-picture.png);
-}
-#Menu p.Menu a:nth-child(3) {
-  height: 353px;
-  background: url(../img/nav-video.png);
-}
-#Menu p.Menu a:nth-child(4) {
-  height: 195px;
-  background: url(../img/nav-download.png);
-}
-#Menu p.Menu a:nth-child(5) {
-  height: 256px;
-  background: url(../img/nav-product.png);
-}
-#Menu p.Menu a:nth-child(6) {
-  height: 302px;
-  background: url(../img/nav-product-manuals.png);
 }
 #Control > a {
   width: 284px;
@@ -6140,14 +6116,14 @@ a.badge:focus {
   text-indent: -10000px;
   background: url(../img/backhome.png) no-repeat;
 }
-#Control nav {
+nav#Sort-wrap {
   width: 670px;
   height: 120px;
   float: right;
-  margin: 0 42px;
+  margin: -110px 42px 0;
 }
-#Control nav .left-path,
-#Control nav .right-path {
+nav#Sort-wrap .left-path,
+nav#Sort-wrap .right-path {
   width: 20px;
   line-height: 120px;
   float: left;
@@ -6156,22 +6132,34 @@ a.badge:focus {
   visibility: hidden;
   margin: 0 10px;
 }
-#Control nav .sort-list {
+nav#Sort-wrap .sort-list {
   width: 590px;
   line-height: 120px;
   float: left;
   overflow: hidden;
 }
-#Control nav .sort-list ul {
+nav#Sort-wrap .sort-list ul {
   margin: 0;
+  height: 120px;
 }
-#Control nav .sort-list ul li {
+nav#Sort-wrap .sort-list ul li {
   float: left;
   margin: 0 11px;
   list-style-position: inside;
   line-height: 110px;
+  color: #998a7b;
+  font-size: 30px;
+}
+nav#Sort-wrap .sort-list ul li a {
   font-size: 30px;
   color: #998a7b;
+}
+nav#Sort-wrap .sort-list ul li a:hover {
+  text-decoration: none;
+}
+nav#Sort-wrap .sort-list ul li.active a {
+  color: #62574c;
+  text-decoration: underline;
 }
 #proCarousel {
   padding-top: 48px;
@@ -6214,6 +6202,11 @@ a.badge:focus {
   text-decoration: none;
   cursor: pointer;
 }
+#proCarousel a.carousel-control {
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+}
 #myModal {
   width: 770px;
   height: 580px;
@@ -6234,6 +6227,8 @@ a.badge:focus {
   margin-left: auto;
   margin-right: auto;
   margin-top: 60px;
+  width: 711px;
+  height: 472px;
 }
 .page-title {
   font: 51px/normal Arial, sans-serif;
@@ -6312,6 +6307,8 @@ a.badge:focus {
   -webkit-border-top-right-radius: 20px;
   -moz-border-radius-topright: 20px;
   border-top-right-radius: 20px;
+  width: 628px;
+  height: 503px;
 }
 /*.dg-wrapper a div{
 	font-style: italic;
@@ -6395,6 +6392,9 @@ a.badge:focus {
   display: block;
   height: 208px;
 }
+#Download-wrap .coupon-list .item a img {
+  height: 208px;
+}
 #Download-wrap .coupon-list .item a p {
   background: black;
   line-height: 43px;
@@ -6463,6 +6463,8 @@ a.badge:focus {
   margin-left: auto;
   margin-right: auto;
   margin-top: 60px;
+  width: 711px;
+  height: 472px;
 }
 #myModal-2 .modal-body > p {
   font-size: 32px;
@@ -6475,7 +6477,7 @@ a.badge:focus {
   width: 1080px;
   height: 540px;
   position: absolute;
-  top: 1378px;
+  top: 1380px;
   left: 50%;
   margin-left: -540px;
   overflow: hidden;
@@ -6535,7 +6537,6 @@ a.badge:focus {
 }
 #Pro-container {
   width: 1080px;
-  overflow: hidden;
   position: relative;
 }
 #Pro-container .dg-wrapper {
@@ -6561,6 +6562,8 @@ a.badge:focus {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
+  width: 617px;
+  height: 617px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -6585,7 +6588,7 @@ a.badge:focus {
 }
 #Pro-container nav {
   position: absolute;
-  top: 0;
+  top: -80px;
   background: none;
   left: 50%;
   margin-left: 260px;

@@ -1,9 +1,5 @@
 (function($){
-	$.getScript("../Frontend/js/jquery.gallery.js", function(){
-		$('#Pro-container').gallery();
-	});
-
-	var getProName=function(){
+	$.getProName=function(){
 		//get sort name
 		var sn=$("#Sort-name").html().split(",");
 		sn.pop();
@@ -16,9 +12,14 @@
 		return sn[i/36];
 	}
 
-	var getPro=function(){
-		var proid=getProName()
-		$("#Pro-container > .dg-wrapper").html($("#sortwrapper a."+proid).clone())
+	$.getPro=function(){ //get prosort name
+		var proid=this.getProName();
+		console.log(proid);
+		$(".dg-wrapper").html($("#Sort-wrap>a."+proid).clone());
+		$.getScript("../Frontend/js/jquery.gallery.js", function(){
+			// $("#Pro-container").undelegate();
+			$("#Pro-container").gallery();
+		});
 	}
 
 	$("#Sort-guide").on("click","i",function(){
@@ -33,7 +34,7 @@
 		$ro.attr("deg",deg2);
 		$ro.css("-webkitTransform", "rotate("+deg2+"deg)");
 
-		console.log(getProName());
+		$.getPro();
 	});
 
 	$("#Sort-pie").hover(function(){
@@ -42,15 +43,14 @@
 		$("#Sort-guide").fadeOut();
 	});
 
-	$(".pro-desc").click(function(e){
-		e.stopPropagation();
-
-		$('#descModal').modal().find(".modal-header h3").html($(this).next().children("h3").html())
-		.end().find(".modal-body p").html($(this).next().children("p").html());
+	$(".dg-center").click("img", function(){
+		console.log(123)
+		$('#descModal').modal().find(".modal-header h3").html($(this).find("h3").html())
+		.end().find(".modal-body p").html($(this).find("p").html());
 		return false;
 	});
 
 	// console.log(getProName())
-	getPro();
+	$.getPro();
 
 }(jQuery))
