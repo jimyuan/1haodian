@@ -409,7 +409,7 @@ nav#Sort-wrap{
 	}
 }
 
-#Prodesc{
+/*#Prodesc{
 	.size(394px, 937px);
 	position: absolute;
 	top:969px;
@@ -477,6 +477,35 @@ nav#Sort-wrap{
 			&:last-child{
 				margin-left:38px;
 			}
+		}
+	}
+}*/
+#proCarousel2{
+	width: 1080px;
+	.carousel-inner{
+		.size(617px, 1080px);
+		.item{
+			a{
+				display: block;
+				.size(617px, 1080px);
+				cursor: default;
+				img{
+					.center-block;
+				}
+				i{
+					visibility: hidden;
+				}
+			}
+		}
+		.active a i{
+			display: block;
+			.square(79px);
+			position: absolute;
+			top:80%;
+			left:65%;
+			background: url(../img/icon-desc.png) no-repeat;
+			visibility: visible;
+			cursor: pointer;
 		}
 	}
 }

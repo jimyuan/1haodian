@@ -14,11 +14,15 @@
 
 	$.getPro=function(){ //get prosort name
 		var proid=this.getProName();
-		console.log(proid);
-		$(".dg-wrapper").html($("#Sort-wrap>a."+proid).clone());
-		$.getScript("../Frontend/js/jquery.gallery.js", function(){
-			// $("#Pro-container").undelegate();
-			$("#Pro-container").gallery();
+		$(".carousel-inner").html($("#Sort-wrap>a."+proid).clone()).children().wrap('<div class="item">').end().children(":first-child").addClass("active");
+		
+		$("#proCarousel2").carousel("pause");
+
+		$(".item").on("click", "i", function(){
+			console.log(12)
+			$('#descModal').modal().find(".modal-header h3").html($(this).next().find("h3").html())
+			.end().find(".modal-body p").html($(this).next().find("p").html());
+			// return false;
 		});
 	}
 
@@ -33,7 +37,7 @@
 
 		$ro.attr("deg",deg2);
 		$ro.css("-webkitTransform", "rotate("+deg2+"deg)");
-
+		
 		$.getPro();
 	});
 
@@ -43,12 +47,7 @@
 		$("#Sort-guide").fadeOut();
 	});
 
-	$(".dg-center").click("img", function(){
-		console.log(123)
-		$('#descModal').modal().find(".modal-header h3").html($(this).find("h3").html())
-		.end().find(".modal-body p").html($(this).find("p").html());
-		return false;
-	});
+	
 
 	// console.log(getProName())
 	$.getPro();
