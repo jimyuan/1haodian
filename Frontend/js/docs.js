@@ -57,7 +57,7 @@
 			String.fromCharCode(t.charCodeAt(t.length - 1) + 1);
 		}
 	};
-	/*
+	
 	$._getCookieVal=function(b){
 		var a = document.cookie.indexOf(";", b);
 		if (a == -1) {
@@ -95,7 +95,7 @@
 		}
 		return null;
 	};
-	*/
+	
 	$.R = function (start, end) {
 		var edge = arguments[2] || false;
 		var v = start;
@@ -122,24 +122,4 @@
 		return arr2;
 	};
 
-	$.goHome = function () {
-		var loadtime = null, waittime = null;
-		var s = 20; //waiting seconds
-
-		if ($("#Menu").length === 0) {
-			loadtime = window.setTimeout(function () {
-				window.location.href = "./";
-			}, s * 1000);
-
-			$("body").mousemove(function () {
-				window.clearInterval(loadtime);
-				if (waittime != null) window.clearInterval(waittime);
-				waittime = window.setTimeout(function () {
-					window.location.href = "./";
-				}, s * 1000);
-			});
-		}
-	};
-
-	// $.goHome();
 } (jQuery))
