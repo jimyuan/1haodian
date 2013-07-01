@@ -498,7 +498,7 @@ nav#Sort-wrap{
 			width:243px;
 			.pull-left;
 			border:1px solid white;
-			border-width:0 1px;	
+			border-width:0 1px;
 			a{				
 				display:block;
 				border-bottom-width:20px;
@@ -509,7 +509,7 @@ nav#Sort-wrap{
 				color:#797979;
 				font-size:30px;
 				.transition(all 0.2s ease-in-out);
-				&.active, &:hover{
+				&:hover{
 					height:-65+@h;
 					line-height: -65+@h;
 					border-bottom-width:65px;
@@ -523,6 +523,12 @@ nav#Sort-wrap{
 					.skew(30deg, 0);
 				}
 			}
+			&.active a{
+				height:-65+@h;
+				line-height: -65+@h;
+				border-bottom-width:65px;
+				color:white;
+			}			
 			&:nth-child(4n+1) a{
 				border-bottom-color:#e66c23;
 			}
