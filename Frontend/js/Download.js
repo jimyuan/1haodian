@@ -4,17 +4,13 @@
 
 	$("#couponCarousel > .carousel-inner").on("click", "img", function(){
 		var img=$(this).attr("qr-code");
-		
+
 		$("#myModal-2").modal().on("shown", function(){
-			$(this).find("img").attr("src", img)
+			$(this).find("img").attr("src", img);
 		}).on("hidden", function(){
 			$(this).find("img").attr("src", "");
 		});
-
-		//find("img").attr("src", $(this).attr("qr-code"));
 	});
-
-
 
 	$(".coupon-list >nav>i").click(function(){
 		$('.carousel').carousel($(this).attr("data"));
