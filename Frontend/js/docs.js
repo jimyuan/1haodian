@@ -38,12 +38,12 @@
 
 			l.on("click", function () {
 				if (list.css("margin-left") < "0px" && !list.is(":animated")) {
-					list.animate({ marginLeft: "+=" + item.outerWidth(true) }, "fast", arrowFlag);
+					list.animate({ marginLeft: "+=" + item.outerWidth(true) }, 100, arrowFlag);
 				}
 			});
 			r.on("click", function () {
 				if ($(this).prev().width() - list.width() <= parseInt(list.css("marginLeft"), 10) && !list.is(":animated")) {
-					list.animate({ marginLeft: "-=" + item.outerWidth(true) }, "fast", arrowFlag);
+					list.animate({ marginLeft: "-=" + item.outerWidth(true) }, 100, arrowFlag);
 				}
 			});
 		});
@@ -121,5 +121,8 @@
 		arr2.length=n;
 		return arr2;
 	};
+
+	$("body")[0].onselectstart=function(){return false;}
+	$("body")[0].ondragstart=function(){return false;}
 
 } (jQuery))

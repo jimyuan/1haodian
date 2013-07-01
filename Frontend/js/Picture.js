@@ -3,7 +3,14 @@
 	$('.carousel').carousel("pause");
 	if($("#proCarousel .item").length<=1) $(".carousel-control").css("visibility", "hidden");
 
-	$("#proCarousel > .carousel-inner").on("click", "i", function(e){
-		$("#myModal").modal().find("img").attr("src", $(this).prev().attr("src"))
+	$("#proCarousel > .carousel-inner").on("click", "img", function(e){
+		var img=$(this).attr("rel");
+		$("#myModal").modal().on("shown", function(){
+			$(this).find("img").attr("src", img)
+		}).on("hidden", function(){
+			$(this).find("img").attr("src", "");
+		});
+	}).on("click", "i", function(){
+		$(this).prev().trigger("click");
 	});
 }(jQuery))
