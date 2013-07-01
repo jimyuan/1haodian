@@ -14,6 +14,8 @@ $(function($){
 				waittime = window.setTimeout(function () {
 					window.location.href = "/";
 				}, s * 1000);
+			}).click(function(){
+				$(this).trigger("mousemove");
 			});
 		}
 	};
