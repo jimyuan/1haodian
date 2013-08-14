@@ -1,15 +1,12 @@
 // Globel JS Definde
 
 (function ($) {
-	$.fn.sortBar = function () {
-		return this.each(function () {
-	
-			//list:ul
-			var item = $(this).find("li"), list = $(this).children("ul");
-			//左右箭头
-			var l = $(this).prev(), r = $(this).next();
 
-			//ul总宽度
+	$.fn.sortBar=function(){
+		return this.each(function(){
+			var o=$(".sort-list"), o2=$(".left-path, .right-path");
+			var list=o.children("ul"), item=list.children("li");
+
 			list.width(function(){
 				var w=0;
 				item.each(function(){
@@ -18,34 +15,33 @@
 				return w;
 			});
 
-			var arrowFlag = function () {
-				//最大位移
-				var offsetMargin = list.width() - list.parent().width();
-				//位移单位
-				var step = Math.abs(parseInt(list.css("marginLeft")))
-
-				if (step === 0) l.css("visibility", "hidden");
-
-				if (offsetMargin > 0) r.css("visibility", "visible");
-				else r.css("visibility", "hidden");
-
-				if (step > 0 && (step - offsetMargin) < 0) l.css("visibility", "visible");
-
-				if (step - offsetMargin >= 0) r.css("visibility", "hidden");
+			if(o.width()>=list.width()) o2.hide();
+			else{
+				$(".right-path").css("visibility","visible");
+				var gap=list.width()-o.width();
+				var scroll=window.setInterval(function(){}, 10);
+				var s=o.scrollLeft(), t=30;
+				console.log(t)
 			}
 
-			arrowFlag();
+			o2.on("mousedown", function(){
+				window.clearInterval(scroll);
+				var d=($(this).hasClass("left-path")===true) ? -1 : 1;
+				scroll=window.setInterval(function(){
+					if(o.scrollLeft()>0) $(".left-path").css("visibility", "visible");
+					else $(".left-path").css("visibility", "hidden");
 
-			l.on("click", function () {
-				if (list.css("margin-left") < "0px" && !list.is(":animated")) {
-					list.animate({ marginLeft: "+=" + item.outerWidth(true) }, 100, arrowFlag);
-				}
-			});
-			r.on("click", function () {
-				if ($(this).prev().width() - list.width() <= parseInt(list.css("marginLeft"), 10) && !list.is(":animated")) {
-					list.animate({ marginLeft: "-=" + item.outerWidth(true) }, 100, arrowFlag);
-				}
-			});
+					if(o.scrollLeft()>=gap) $(".right-path").css("visibility", "hidden");
+					else $(".right-path").css("visibility", "visible");
+
+					t+=s+10*d;
+					if(t<0) t=0;
+					if(t>gap) t=gap;
+					o.scrollLeft(t)
+				}, 10);
+				
+			})
+			.on("mouseup", function(){window.clearInterval(scroll)});
 		});
 	};
 

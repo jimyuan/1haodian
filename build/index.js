@@ -28,13 +28,13 @@ fs.readdirSync(__dirname + '/../templates/pages').forEach(function (name) {
 	if(pagename==='index'){
 		context={
 			script: "Home"
-			, homeflag: "homebody"
+			, homeflag: "home"
 		}
 	}
 	else{
 		context={
 			script: pagename
-			, homeflag: "pagebody"
+			, homeflag: "page"
 		}
 	}
 

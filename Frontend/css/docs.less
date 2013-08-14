@@ -1,5 +1,6 @@
 @import  "../vandor/bs/bootstrap.less";
 
+
 @tc: #998a7b;
 
 .origin(@left, @right) {
@@ -33,25 +34,24 @@
 	}
 }
 
+body {
+	font-family:"浪漫雅圆";
+}
+
+.mainly{
+	.center-block;
+	.size(1920px, 1080px);
+}
 
 .header{
 	.center-block;
 	.size(234px, 1080px);
 	text-indent: -10000px;
-	background: url(../img/header.png);
 }
 
 .container{
 	.center-block;
 	.size(1686px, 1080px);
-}
-
-#homebody{
-	background: url(../img/homebody.png);
-}
-
-#pagebody{
-	background: url(../img/pagebody.png);
 }
 
 //menu in homepage
@@ -73,7 +73,6 @@
 				color: white;
 				text-align: center;
 				text-shadow:-2px 2px 5px gray;
-				font-family: "SimHei";
 				&:hover{
 					text-decoration: none;
 					color:white; 
@@ -542,6 +541,14 @@ nav#Sort-wrap{
 				border-bottom-color:#d83377;
 			}
 		}
+	}
+}
+
+#descModal.modal{
+	width:800px;
+	margin-left: -400px;
+	.modal-body{
+		max-height: none;
 	}
 }
 

@@ -9,9 +9,11 @@
 	</head>
 
 	<body>
-		{{>header}}
-		<div class="container" id="{{homeflag}}">
-			{{>body}}
+		<div class="mainly" style="background-image:url(../Frontend/img/layout-{{homeflag}}.png)">
+			{{>header}}
+			<div class="container">
+				{{>body}}
+			</div>
 		</div>
 		<script src="../Frontend/js/jquery.min.js"></script>
 		<script src="../Frontend/js/bootstrap.min.js"></script>
